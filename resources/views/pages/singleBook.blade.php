@@ -5,17 +5,17 @@
 @endsection
 
 @section('title')
-    Name ... Book
+    Book
 @endsection
 
 @section('content')
     <div class="app">
         <section class="main container p-10">
             <div class="flex justify-center mb-6">
-                <h1 class="text-gray-100 font-extrabold text-2xl ">ارباب حلقه ها</h1>
+                <h1 class="text-gray-100 font-extrabold text-2xl ">{{ $book->name }}</h1>
             </div>
             <div class="flex justify-center  mb-6 items-center ">
-                <img src="{{ asset('uploads/images/Hobbit.jpg') }}" class=" w-64" alt="">
+                <img src="{{ $book->image }}" class=" w-64" alt="">
             </div>
             <div class="mb-6 flex justify-center">
                 <div class="likeShareComment flex justify-between w-64  items-center ">
@@ -50,13 +50,7 @@
             <div class="desciption mb-10">
                 <p class="text-gray-100 font-medium text-sm">نویسنده : <span class="font-extrabold text-base">تالکین</span>
                 </p>
-                <p class="text-gray-100 font-normal text-sm" style="line-height:1.5rem">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و
-                    متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و
-                    کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده،
-                    شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی
-                    الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام
-                </p>
+                <p class="text-gray-100 font-normal text-sm" style="line-height:1.5rem">{{ $book->description }}</p>
 
             </div>
 
@@ -176,3 +170,5 @@
 @section('js')
     <script src="{{ asset('src/js/singleBook.js') }}"></script>
 @endsection
+
+

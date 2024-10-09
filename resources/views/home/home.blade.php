@@ -64,13 +64,14 @@
                     <div class="swiper-wrapper gap-2">
                         @foreach ($booksNew as $book)
                             <!-- Slides -->
-                            <div class="swiper-slide">
-                                <img class="w-24 h-32" src="{{ asset('uploads/images/Hobbit.jpg') }}"
-                                    alt="{{ $book->name }}" />
-                                <p class="text-gray-100 font-light text-xs text-center">
-                                    {{ $book->name }}
-                                </p>
-                            </div>
+                            <a href="{{ route('books.id', $book->id) }}">
+                                <div class="swiper-slide">
+                                    <img class="w-24 h-32" src="{{ $book->image }}" alt="{{ $book->name }}" />
+                                    <p class="text-gray-100 font-light text-xs text-center">
+                                        {{ $book->name }}
+                                    </p>
+                                </div>
+                            </a>
                             <!-- Slides -->
                         @endforeach
                     </div>
@@ -95,13 +96,16 @@
 
                         @foreach ($books as $book)
                             <!-- Slides -->
-                            <div class="swiper-slide">
-                                <img class="w-24 h-32" src="{{ asset('uploads/images/Hobbit.jpg') }}"
-                                    alt="{{ $book->name }}" />
-                                <p class="text-gray-100 font-light text-xs text-center">
-                                    {{ $book->name }}
-                                </p>
-                            </div>
+
+                            <a href="{{ route('books.id', $book->id) }}">
+                                <div class="swiper-slide">
+                                    <img class="w-24 h-32" src="{{ asset('uploads/images/Hobbit.jpg') }}"
+                                        alt="{{ $book->name }}" />
+                                    <p class="text-gray-100 font-light text-xs text-center">
+                                        {{ $book->name }}
+                                    </p>
+                                </div>
+                            </a>
                             <!-- Slides -->
                         @endforeach
 

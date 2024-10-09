@@ -10,9 +10,11 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
-    public function index()
+    public function index(Book $book)
     {
 
+        $singleBook = Book::findOrFail($book->id);
+        return view('pages.singleBook', data: ['book' => $singleBook]);
     }
     public function create(StoreRequest $request)
     {
@@ -26,9 +28,9 @@ class BookController extends Controller
         // dd($request->image);
 
         if (!$request->image) {
-            $fileBook = public_path('uploads/images/Hobbit.jpg');
+            $fileBook = asset('uploads/images/Hobbit.jpg');
         } else {
-            $fileBook = public_path('uploads/images/Hobbit.jpg') . time() . "-" . $request->image->getClientOriginalName();
+            $fileBook = asset('uploads/images/') . time() . "-" . $request->image->getClientOriginalName();
             $request->image->storeAs('uploads/images', $fileBook);
         }
 
