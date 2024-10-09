@@ -1,0 +1,16 @@
+#comment-modal {
+    display: none;
+  }
+  
+  #comment-modal.show {
+    display: flex;
+  }
+  
+  #comment-content {
+    transition: transform 0.3s ease-out;
+  }
+  
+  #comment-modal.show #comment-content {
+    transform: translate-y-0;
+  }
+  
