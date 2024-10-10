@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreRequest;
 use App\Models\Book;
 use App\Models\Author;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 
 class BookController extends Controller
 {

@@ -52,6 +52,9 @@ const closeSearch = () => {
     });
 };
 
+
+
+
 closeSearch();
 openSearchModal();
 openMenu();
