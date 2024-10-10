@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreRequest;
 use App\Models\Book;
 use App\Models\Author;
+use App\Models\Comment;
 
 class BookController extends Controller
 {
     public function index(Book $book)
     {
-
+        $comments = Comment::where('book_id', '=', $book->id)->get();
         $singleBook = Book::findOrFail($book->id);
-        return view('pages.singleBook', data: ['book' => $singleBook]);
+        return view('pages.singleBook', data: ['book' => $singleBook, 'comments' => $comments]);
     }
     public function create(StoreRequest $request)
     {

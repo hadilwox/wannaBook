@@ -94,46 +94,14 @@
                         <!-- items search -->
                         <div class="p-4 md:p-5 border-t border-gray-400 overflow-y-auto max-h-[60vh]">
                             <!-- Comments List -->
-                            <div class="px-4 mb-5">
-                                <h5 class="text-gray-100 font-bold text-base">هادی هاشمی :</h5>
-                                <p class="text-gray-100 font-normal text-sm">من خیلی این کتاب دوست داشتم بنظرم عالی بود</p>
-                            </div>
-                            <div class="px-4 mb-5">
-                                <h5 class="text-gray-100 font-bold text-base">هادی هاشمی :</h5>
-                                <p class="text-gray-100 font-normal text-sm">من خیلی این کتاب دوست داشتم بنظرم عالی بود</p>
-                            </div>
-                            <div class="px-4 mb-5">
-                                <h5 class="text-gray-100 font-bold text-base">هادی هاشمی :</h5>
-                                <p class="text-gray-100 font-normal text-sm">من خیلی این کتاب دوست داشتم بنظرم عالی بود</p>
-                            </div>
-                            <div class="px-4 mb-5">
-                                <h5 class="text-gray-100 font-bold text-base">هادی هاشمی :</h5>
-                                <p class="text-gray-100 font-normal text-sm">من خیلی این کتاب دوست داشتم بنظرم عالی بود</p>
-                            </div>
-                            <div class="px-4 mb-5">
-                                <h5 class="text-gray-100 font-bold text-base">هادی هاشمی :</h5>
-                                <p class="text-gray-100 font-normal text-sm">من خیلی این کتاب دوست داشتم بنظرم عالی بود</p>
-                            </div>
-                            <div class="px-4 mb-5">
-                                <h5 class="text-gray-100 font-bold text-base">هادی هاشمی :</h5>
-                                <p class="text-gray-100 font-normal text-sm">من خیلی این کتاب دوست داشتم بنظرم عالی بود</p>
-                            </div>
-                            <div class="px-4 mb-5">
-                                <h5 class="text-gray-100 font-bold text-base">هادی هاشمی :</h5>
-                                <p class="text-gray-100 font-normal text-sm">من خیلی این کتاب دوست داشتم بنظرم عالی بود</p>
-                            </div>
-                            <div class="px-4 mb-5">
-                                <h5 class="text-gray-100 font-bold text-base">هادی هاشمی :</h5>
-                                <p class="text-gray-100 font-normal text-sm">من خیلی این کتاب دوست داشتم بنظرم عالی بود</p>
-                            </div>
-                            <div class="px-4 mb-5">
-                                <h5 class="text-gray-100 font-bold text-base">هادی هاشمی :</h5>
-                                <p class="text-gray-100 font-normal text-sm">من خیلی این کتاب دوست داشتم بنظرم عالی بود</p>
-                            </div>
-                            <div class="px-4 mb-5">
-                                <h5 class="text-gray-100 font-bold text-base">هادی هاشمی :</h5>
-                                <p class="text-gray-100 font-normal text-sm">من خیلی این کتاب دوست داشتم بنظرم عالی بود</p>
-                            </div>
+                            @foreach ($comments as $comment)
+                                <div class="px-4 mb-5">
+                                    <h5 class="text-gray-100 font-bold text-base">{{ $comment->username }}</h5>
+                                    <p class="text-gray-100 font-normal text-sm">{{ $comment->message }}</p>
+                                </div>
+                            @endforeach
+
+
                             <!-- Add more comments here -->
                         </div>
 
@@ -170,5 +138,3 @@
 @section('js')
     <script src="{{ asset('src/js/singleBook.js') }}"></script>
 @endsection
-
-
