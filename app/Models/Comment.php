@@ -8,9 +8,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Comment extends Model
 {
-    use HasFactory , SoftDeletes;
+    use HasFactory, SoftDeletes;
 
-    public function book ()
+    protected $guarded = [];
+
+    public function book()
     {
         $this->belongsTo(Book::class);
     }

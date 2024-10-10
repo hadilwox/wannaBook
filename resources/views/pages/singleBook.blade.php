@@ -10,6 +10,15 @@
 
 @section('content')
     <div class="app">
+        <div class="allMessage mt-2 px-2">
+            @error('username')
+                @include('layout.message.errorMessage')
+            @enderror
+            @error('message')
+                @include('layout.message.errorMessage')
+            @enderror
+            @include('layout.message.successMessage')
+        </div>
         <section class="main container p-10">
             <div class="flex justify-center mb-6">
                 <h1 class="text-gray-100 font-extrabold text-2xl ">{{ $book->name }}</h1>
@@ -107,10 +116,14 @@
 
                         <!-- Modal footer (input for adding comment) -->
                         <div class="p-4 md:p-5 bg-zinc-950 border-t border-gray-400 sticky bottom-0 w-full">
-                            <form>
-                                <input type="text" id="first_name"
+                            <form action="{{ route('comment.add', $book->id) }}" method="POST">
+                                @csrf
+                                @error('username')
+                                    @include('layout.message.errorMessage')
+                                @enderror
+                                <input type="text" id="username" name="username"
                                     class="bg-gray-50 max-w-56 border mb-4 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-teal-900 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
-                                    placeholder="اسمتو بنویس" required />
+                                    placeholder="اسمتو بنویس" />
                                 <div class="relative flex items-center justify-center">
                                     <button type="submit"
                                         class="text-white absolute start-2.5 bottom-2.5 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
@@ -121,10 +134,13 @@
                                         </svg>
                                     </button>
 
-                                    <input type="text" id="commnetText"
+                                    <input type="text" id="commnetText" name="message"
                                         class="block w-full p-4 ps-20 text-sm text-gray-900 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 bg-teal-950 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
-                                        placeholder="کامنت بگذارید" required />
+                                        placeholder="کامنت بگذارید" />
                                 </div>
+                                @error('message')
+                                    @include('layout.message.errorMessage')
+                                @enderror
                             </form>
                         </div>
                     </div>
