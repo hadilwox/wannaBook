@@ -58,7 +58,7 @@
         books.forEach(book => {
             let bookHTML = `
             <div>
-                <a href="#" class="flex gap-5 my-3">
+                <a href="{{ route('books.id', '') }}/${book.id}" class="flex gap-5 my-3">
                     <img src="${book.image}" alt="${book.name}"
                          class="h-28 w-20 rounded-md border-gray-900 border-2">
                     <div class="flex flex-col justify-evenly">
