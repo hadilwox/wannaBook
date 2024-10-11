@@ -6,8 +6,6 @@ const modalSearch = $.getElementById("modalSearch");
 const closeSearchModal = $.getElementById("closeSearchModal");
 const darkOverlay = $.getElementById("darkOverlay");
 
-console.log(menuBtn);
-
 const openMenu = () => {
     menuBtn.addEventListener("click", function () {
         if (menuSection.style.transform != "translateX(7rem)") {

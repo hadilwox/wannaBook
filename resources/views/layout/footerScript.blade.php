@@ -23,7 +23,8 @@
     const searchInput = document.getElementById('search');
     const containerSearchItem = document.getElementById('containerSearchItem');
 
-    searchInput.addEventListener("keypress", function () {
+    // search Ajax start
+    searchInput.addEventListener("keypress", function() {
         let query = searchInput.value; // دریافت مقدار ورودی
 
         // Ajax
@@ -34,7 +35,7 @@
         xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}');
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-        xhr.onload = function () {
+        xhr.onload = function() {
             if (xhr.status == 200) {
                 let books = JSON.parse(this.response); // تبدیل پاسخ JSON به آرایه‌ای از آبجکت‌ها
                 displayBooks(books); // نمایش کتاب‌ها در قالب
@@ -73,7 +74,18 @@
             containerSearchItem.insertAdjacentHTML('beforeend', bookHTML);
         });
     }
+    // search Ajax end
 
 
+    // like Ajax start
+
+    const likeBtn = document.getElementById("likeBtn");
+    likeBtn.addEventListener("click", function() {
+        console.log("Like");
+
+    })
+
+
+    // like Ajax end
 </script>
 <script src="{{ asset('src/js/app.js') }}"></script>
