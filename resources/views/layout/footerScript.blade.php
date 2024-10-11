@@ -80,9 +80,39 @@
     // like Ajax start
 
     const likeBtn = document.getElementById("likeBtn");
-    likeBtn.addEventListener("click", function() {
-        console.log("Like");
+    const countLike = document.getElementById("countLike");
 
+    let bookId = document.getElementById("bookId").innerHTML;
+
+    let count = 0;
+
+    likeBtn.addEventListener("click", function() {
+
+        count = +countLike.innerHTML + 1;
+
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "{{ route('ajax.like') }}", true);
+
+        // Set CSRF Token header
+        xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}');
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        xhr.onload = function() {
+            if (xhr.status == 200) {
+                countLike.innerHTML = count;
+
+            } else {
+                console.error('Error:', xhr.status);
+            }
+        }
+
+        // ارسال مقدار اینپوت
+        let rCount = "count=" + encodeURIComponent(count)
+        let rBook = "bookId=" + encodeURIComponent(bookId)
+
+        let params = rCount + "&" + rBook;
+
+        xhr.send(params);
     })
 
 
